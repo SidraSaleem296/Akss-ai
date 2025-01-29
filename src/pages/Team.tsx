@@ -53,6 +53,12 @@ const Team = () => {
       department: "Engineering"
     },
     {
+      name: "Syeda Aiman Mumtaz Sherazi",
+      role: "Computer Scientist",
+      emoji: "👩‍💻",
+      department: "Engineering"
+    },
+    {
       name: "Hira",
       role: "AI Engineer",
       emoji: "🤖",
