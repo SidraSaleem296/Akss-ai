@@ -1,515 +1,239 @@
-// import React, { useState, useEffect } from 'react';
-// import { motion } from 'framer-motion';
-// import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
-
-// const Contact = () => {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     company: '',
-//     industry: '',
-//     message: ''
-//   });
-
-//   const [map, setMap] = useState(null);
-
-//   useEffect(() => {
-//     // Initialize Google Maps
-//     const loadGoogleMaps = () => {
-//       const googleMapsScript = document.createElement('script');
-//       googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY`;
-//       googleMapsScript.async = true;
-//       googleMapsScript.defer = true;
-//       window.document.body.appendChild(googleMapsScript);
-
-//       googleMapsScript.addEventListener('load', () => {
-//         // Coordinates for Islamabad
-//         const islamabad = { lat: 33.6844, lng: 73.0479 };
-        
-//         const mapInstance = new window.google.maps.Map(document.getElementById('map'), {
-//           center: islamabad,
-//           zoom: 15,
-//         });
-
-//         new window.google.maps.Marker({
-//           position: islamabad,
-//           map: mapInstance,
-//           title: 'Akss AI Office'
-//         });
-
-//         setMap(mapInstance);
-//       });
-//     };
-
-//     loadGoogleMaps();
-//   }, []);
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     console.log('Form submitted:', formData);
-//   };
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-
-//   return (
-//     <div className="bg-white">
-//       {/* Hero Section */}
-//       <section className="bg-primary py-20">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             className="text-center"
-//           >
-//             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-//               Get in Touch
-//             </h1>
-//             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-//               Ready to transform your business with AI? Contact us to discuss your needs and discover how we can help.
-//             </p>
-//           </motion.div>
-//         </div>
-//       </section>
-
-//       {/* Contact Form Section */}
-//       <section className="py-20">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-//             {/* Contact Information */}
-//             <motion.div
-//               initial={{ opacity: 0, x: -20 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8 }}
-//               className="space-y-8"
-//             >
-//               <div>
-//                 <h2 className="text-3xl font-bold text-primary mb-6">Contact Information</h2>
-//                 <p className="text-neutral mb-8">
-//                   Have questions about our AI solutions? Our team is here to help. Reach out to us through any of these channels.
-//                 </p>
-//               </div>
-
-//               <div className="space-y-6">
-//                 {[
-//                   {
-//                     icon: <Mail className="h-6 w-6 text-secondary" />,
-//                     title: "Email",
-//                     content: "contact@akssai.com"
-//                   },
-//                   {
-//                     icon: <Phone className="h-6 w-6 text-secondary" />,
-//                     title: "Phone",
-//                     content: "+92 333 8270313"
-//                   },
-//                   {
-//                     icon: <MapPin className="h-6 w-6 text-secondary" />,
-//                     title: "Location",
-//                     content: "Islamabad, Pakistan"
-//                   },
-//                   {
-//                     icon: <MessageSquare className="h-6 w-6 text-secondary" />,
-//                     title: "Support",
-//                     content: "support@akssai.com"
-//                   }
-//                 ].map((item, index) => (
-//                   <div key={index} className="flex items-start space-x-4">
-//                     <div className="flex-shrink-0">{item.icon}</div>
-//                     <div>
-//                       <h3 className="font-semibold text-primary">{item.title}</h3>
-//                       <p className="text-neutral">{item.content}</p>
-//                     </div>
-//                   </div>
-//                 ))}
-//               </div>
-//             </motion.div>
-
-//             {/* Contact Form */}
-//             <motion.div
-//               initial={{ opacity: 0, x: 20 }}
-//               whileInView={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8 }}
-//             >
-//               <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg">
-//                 <div className="space-y-6">
-//                   <div>
-//                     <label htmlFor="name" className="block text-sm font-medium text-neutral mb-2">
-//                       Full Name
-//                     </label>
-//                     <input
-//                       type="text"
-//                       id="name"
-//                       name="name"
-//                       value={formData.name}
-//                       onChange={handleChange}
-//                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-//                       required
-//                     />
-//                   </div>
-
-//                   <div>
-//                     <label htmlFor="email" className="block text-sm font-medium text-neutral mb-2">
-//                       Email Address
-//                     </label>
-//                     <input
-//                       type="email"
-//                       id="email"
-//                       name="email"
-//                       value={formData.email}
-//                       onChange={handleChange}
-//                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-//                       required
-//                     />
-//                   </div>
-
-//                   <div>
-//                     <label htmlFor="company" className="block text-sm font-medium text-neutral mb-2">
-//                       Company Name
-//                     </label>
-//                     <input
-//                       type="text"
-//                       id="company"
-//                       name="company"
-//                       value={formData.company}
-//                       onChange={handleChange}
-//                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-//                     />
-//                   </div>
-
-//                   <div>
-//                     <label htmlFor="industry" className="block text-sm font-medium text-neutral mb-2">
-//                       Industry
-//                     </label>
-//                     <select
-//                       id="industry"
-//                       name="industry"
-//                       value={formData.industry}
-//                       onChange={handleChange}
-//                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-//                       required
-//                     >
-//                       <option value="">Select Industry</option>
-//                       <option value="finance">Finance</option>
-//                       <option value="education">Education</option>
-//                       <option value="legal">Legal</option>
-//                       <option value="ecommerce">E-commerce</option>
-//                       <option value="other">Other</option>
-//                     </select>
-//                   </div>
-
-//                   <div>
-//                     <label htmlFor="message" className="block text-sm font-medium text-neutral mb-2">
-//                       Message
-//                     </label>
-//                     <textarea
-//                       id="message"
-//                       name="message"
-//                       value={formData.message}
-//                       onChange={handleChange}
-//                       rows={4}
-//                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-//                       required
-//                     ></textarea>
-//                   </div>
-
-//                   <button
-//                     type="submit"
-//                     className="w-full bg-secondary hover:bg-gold text-white font-bold py-3 px-6 rounded-md transition-colors duration-300"
-//                   >
-//                     Send Message
-//                   </button>
-//                 </div>
-//               </form>
-//             </motion.div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Map Section */}
-//       <section className="bg-gray-50 py-20">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <motion.div
-//             initial={{ opacity: 0 }}
-//             whileInView={{ opacity: 1 }}
-//             transition={{ duration: 0.8 }}
-//             className="text-center mb-12"
-//           >
-//             <h2 className="text-3xl font-bold text-primary mb-4">Visit Our Office</h2>
-//             <p className="text-neutral">
-//               We're located in the heart of Islamabad's technology district.
-//             </p>
-//           </motion.div>
-
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             className="bg-white p-4 rounded-lg shadow-lg"
-//           >
-//             <div id="map" className="h-96 w-full rounded-lg"></div>
-//           </motion.div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Contact;
-
-
-
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
+import { FormEvent, useState, useRef } from 'react';
+import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import PageHero from '../components/PageHero';
+import PageSection, { SectionHeading } from '../components/PageSection';
+import { contactChannels } from '../content/siteContent';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    industry: '',
-    message: ''
-  });
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
-  // Removed Google Maps initialization and useState for the map
-  const [map, setMap] = useState(null);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+    setSubmitted(false);
 
-  useEffect(() => {
-    // Dummy location for Islamabad
-    const islamabad = { lat: 33.6844, lng: 73.0479 };
+    const formData = new FormData(event.currentTarget);
 
-    // You can now simulate map loading with static content or a dummy map.
-    // For the purpose of this example, we're using a simple placeholder.
-
-    const mapContainer = document.getElementById('map');
-    if (mapContainer) {
-      mapContainer.innerHTML = `
-        <div style="width: 100%; height: 100%; background: #e0e0e0; display: flex; justify-content: center; align-items: center;">
-          <div style="text-align: center;">
-            <h3>Dummy Location: Akss AI Office</h3>
-            <p>Latitude: ${islamabad.lat}, Longitude: ${islamabad.lng}</p>
-            <div style="width: 40px; height: 40px; background-color: red; border-radius: 50%; margin-top: 10px;"></div>
-          </div>
-        </div>
-      `;
+    // Debug: Check if access key is loaded
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey || accessKey === 'your_web3forms_access_key_here') {
+      setError('Form configuration error. Please contact us directly via email.');
+      setIsSubmitting(false);
+      return;
     }
-  }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+      const data = await response.json();
+
+      console.log('Web3Forms response:', data); // Debug log
+
+      // Check if submission was successful
+      if (data.success === true || data.success === 'true') {
+        setSubmitted(true);
+        setError('');
+        // Reset form using ref
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+      } else {
+        setSubmitted(false);
+        setError(data.message || 'Something went wrong. Please try again.');
+        console.error('Web3Forms error:', data);
+      }
+    } catch (err) {
+      setSubmitted(false);
+      setError('Failed to send message. Please try the direct email contact below.');
+      console.error('Form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Get in Touch
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to transform your business with AI? Contact us to discuss your needs and discover how we can help.
-            </p>
-          </motion.div>
+    <div className="space-y-8 pb-8 sm:space-y-10 sm:pb-10">
+      <PageHero
+        eyebrow="Contact"
+        title="Tell us what you want to build."
+        description="Share your workflow, product idea, or automation challenge and we will help shape the right direction for it."
+        actions={[
+          { label: 'See Solutions', to: '/solutions' },
+          { label: 'Meet the Team', to: '/team', variant: 'secondary' },
+        ]}
+      >
+        <div className="soft-card soft-card-dark p-6 shadow-glow">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/[0.42]">
+            Typical starting points
+          </p>
+          <ul className="mt-5 space-y-3 text-sm leading-7 text-white/[0.62]">
+            <li>Secure knowledge assistant for internal teams</li>
+            <li>AI chatbot for customer support or lead capture</li>
+            <li>Automation for repetitive operational workflows</li>
+            <li>Custom GenAI SaaS product or internal portal</li>
+          </ul>
         </div>
-      </section>
+      </PageHero>
 
-      {/* Contact Form Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              <div>
-                <h2 className="text-3xl font-bold text-primary mb-6">Contact Information</h2>
-                <p className="text-neutral mb-8">
-                  Have questions about our AI solutions? Our team is here to help. Reach out to us through any of these channels.
-                </p>
+      <PageSection tone="light" className="scene-grid-light">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Project form"
+              title="Start the conversation with the workflow, not just the feature list."
+              tone="light"
+            />
+
+            <form ref={formRef} className="mt-8 grid gap-4" onSubmit={handleSubmit}>
+              {/* Web3Forms Access Key - Loaded from environment variable */}
+              <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY} />
+              <input type="hidden" name="subject" value="New Project Inquiry from AKSS AI Website" />
+              <input type="hidden" name="from_name" value="AKSS AI Contact Form" />
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">Name</span>
+                  <input
+                    className="rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-midnight"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    disabled={isSubmitting}
+                  />
+                </label>
+                <label className="grid gap-2">
+                  <span className="text-sm font-medium text-slate-700">Company</span>
+                  <input
+                    className="rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-midnight"
+                    name="company"
+                    placeholder="Your company"
+                    disabled={isSubmitting}
+                  />
+                </label>
               </div>
 
-              <div className="space-y-6">
-                {[{
-                  icon: <Mail className="h-6 w-6 text-secondary" />,
-                  title: "Email",
-                  content: "contact@akssai.com"
-                },
-                {
-                  icon: <Phone className="h-6 w-6 text-secondary" />,
-                  title: "Phone",
-                  content: "+92 333 8270313"
-                },
-                {
-                  icon: <MapPin className="h-6 w-6 text-secondary" />,
-                  title: "Location",
-                  content: "Islamabad, Pakistan"
-                },
-                {
-                  icon: <MessageSquare className="h-6 w-6 text-secondary" />,
-                  title: "Support",
-                  content: "support@akssai.com"
-                }].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">{item.icon}</div>
-                    <div>
-                      <h3 className="font-semibold text-primary">{item.title}</h3>
-                      <p className="text-neutral">{item.content}</p>
-                    </div>
+              <label className="grid gap-2">
+                <span className="text-sm font-medium text-slate-700">Email</span>
+                <input
+                  type="email"
+                  className="rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-midnight"
+                  name="email"
+                  placeholder="you@company.com"
+                  required
+                  disabled={isSubmitting}
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-medium text-slate-700">What are you trying to build?</span>
+                <input
+                  className="rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-midnight"
+                  name="project_scope"
+                  placeholder="Example: secure internal knowledge assistant"
+                  required
+                  disabled={isSubmitting}
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-medium text-slate-700">
+                  What workflow or pain point do you want to solve?
+                </span>
+                <textarea
+                  className="min-h-[180px] rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-midnight"
+                  name="message"
+                  placeholder="Tell us where the current process feels slow, repetitive, disconnected, or hard to scale."
+                  required
+                  disabled={isSubmitting}
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-sm font-medium text-slate-700">Timeline</span>
+                <input
+                  className="rounded-2xl border border-slate-900/10 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-midnight"
+                  name="timeline"
+                  placeholder="Example: MVP in 6 weeks"
+                  disabled={isSubmitting}
+                />
+              </label>
+
+              <button
+                type="submit"
+                className="button-primary mt-2 w-full sm:w-fit justify-center sm:justify-start disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Start the Conversation'}
+                <Send className="ml-2 h-4 w-4" />
+              </button>
+
+              {submitted && (
+                <div className="soft-card soft-card-light flex items-start gap-3 p-4">
+                  <CheckCircle className="h-5 w-5 shrink-0 text-teal" />
+                  <div>
+                    <p className="font-medium text-slate-900">Message sent successfully!</p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      We'll review your inquiry and get back to you within 24-48 hours.
+                    </p>
                   </div>
+                </div>
+              )}
+
+              {error && (
+                <div className="soft-card soft-card-light flex items-start gap-3 border-red-200 bg-red-50 p-4">
+                  <AlertCircle className="h-5 w-5 shrink-0 text-red-600" />
+                  <div>
+                    <p className="font-medium text-red-900">Failed to send message</p>
+                    <p className="mt-1 text-sm text-red-700">{error}</p>
+                  </div>
+                </div>
+              )}
+            </form>
+          </div>
+
+          <div className="grid gap-4 self-start">
+            <div className="soft-card soft-card-light p-6 shadow-float">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                Direct contact
+              </p>
+              <div className="mt-5 space-y-3">
+                {contactChannels.map((email) => (
+                  <a
+                    key={email}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Project Inquiry from AKSS AI Website`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="soft-card soft-card-light flex items-center gap-4 px-4 py-4 hover:border-midnight/20"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                      <Mail className="h-4 w-4" />
+                    </div>
+                    <span className="text-sm font-medium text-slate-700">{email}</span>
+                  </a>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg">
-                <div className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-neutral mb-2">
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="industry" className="block text-sm font-medium text-neutral mb-2">
-                      Industry
-                    </label>
-                    <select
-                      id="industry"
-                      name="industry"
-                      value={formData.industry}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-                      required
-                    >
-                      <option value="">Select Industry</option>
-                      <option value="finance">Finance</option>
-                      <option value="education">Education</option>
-                      <option value="legal">Legal</option>
-                      <option value="ecommerce">E-commerce</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-neutral mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-secondary focus:border-transparent"
-                      required
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-secondary hover:bg-gold text-white font-bold py-3 px-6 rounded-md transition-colors duration-300"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
-            </motion.div>
+            <div className="soft-card soft-card-light p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                Best fit projects
+              </p>
+              <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-600">
+                <li>Teams that want custom AI around a real workflow</li>
+                <li>Founders who need product thinking and build execution together</li>
+                <li>Businesses with internal knowledge or repetitive process bottlenecks</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-primary mb-4">Visit Our Office</h2>
-            <p className="text-neutral">
-              We're located in the heart of Islamabad's technology district.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            id="map"
-            style={{ height: '400px', borderRadius: '10px' }}
-          >
-            {/* Dummy map rendering */}
-          </motion.div>
-        </div>
-      </section>
+      </PageSection>
     </div>
   );
 };

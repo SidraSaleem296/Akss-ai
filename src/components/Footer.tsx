@@ -1,68 +1,97 @@
-import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Brain, Twitter, Linkedin, Github } from 'lucide-react';
+import BrandMark from './BrandMark';
+import { contactChannels, navItems, services } from '../content/siteContent';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#003366] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Brain className="h-8 w-8 text-[#50C878]" />
-              <span className="text-xl font-bold">Akss AI</span>
+    <footer className="relative z-10 pb-8 pt-10 sm:pb-10">
+      <div className="page-shell">
+        <div className="scene-card scene-dark px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr] lg:gap-10">
+            <div className="max-w-sm">
+              <BrandMark />
+              <p className="mt-5 text-sm leading-7 text-white/[0.62]">
+                AKSS AI builds custom AI systems, secure RAG workflows, and full-stack
+                GenAI products for modern businesses that want practical automation and
+                stronger digital products.
+              </p>
+              <div className="mt-6">
+                <Link to="/contact" className="button-primary">
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
             </div>
-            <p className="text-sm text-gray-300">
-              Empowering businesses with secure and innovative AI solutions.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-[#00FFFF]">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#00FFFF]">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-[#00FFFF]">
-                <Github className="h-5 w-5" />
-              </a>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-white/[0.48]">
+                Navigation
+              </h3>
+              <ul className="mt-5 space-y-3 text-sm text-white/[0.68]">
+                {navItems.map((item) => (
+                  <li key={item.path}>
+                    <Link to={item.path} className="hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link to="/elevator-pitch" className="hover:text-white">
+                    Studio Model
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-white/[0.48]">
+                Core Services
+              </h3>
+              <ul className="mt-5 space-y-3 text-sm text-white/[0.68]">
+                {services.slice(0, 4).map((service) => (
+                  <li key={service.title}>{service.title}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-white/[0.48]">
+                Contact
+              </h3>
+              <ul className="mt-5 space-y-3 text-sm text-white/[0.68]">
+                {contactChannels.map((email) => (
+                  <li key={email}>
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Inquiry from AKSS AI Website`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white"
+                    >
+                      {email}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Solutions</h3>
-            <ul className="space-y-2">
-              <li><Link to="/solutions" className="text-gray-300 hover:text-[#00FFFF]">Finance</Link></li>
-              <li><Link to="/solutions" className="text-gray-300 hover:text-[#00FFFF]">Education</Link></li>
-              <li><Link to="/solutions" className="text-gray-300 hover:text-[#00FFFF]">Legal</Link></li>
-              <li><Link to="/solutions" className="text-gray-300 hover:text-[#00FFFF]">E-commerce</Link></li>
-            </ul>
+          <div className="mt-10 border-t border-white/10 pt-6 text-sm text-white/[0.48]">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p>© {new Date().getFullYear()} AKSS AI. All rights reserved.</p>
+              <div className="flex gap-4">
+                <Link to="/privacy" className="hover:text-white/[0.72]">
+                  Privacy
+                </Link>
+                <Link to="/terms" className="hover:text-white/[0.72]">
+                  Terms
+                </Link>
+                <Link to="/security" className="hover:text-white/[0.72]">
+                  Security
+                </Link>
+              </div>
+            </div>
           </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-300 hover:text-[#00FFFF]">About Us</Link></li>
-              <li><Link to="/careers" className="text-gray-300 hover:text-[#00FFFF]">Careers</Link></li>
-              <li><Link to="/blog" className="text-gray-300 hover:text-[#00FFFF]">Blog</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-[#00FFFF]">Contact</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><Link to="/privacy" className="text-gray-300 hover:text-[#00FFFF]">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-gray-300 hover:text-[#00FFFF]">Terms of Service</Link></li>
-              <li><Link to="/security" className="text-gray-300 hover:text-[#00FFFF]">Security</Link></li>
-              <li><Link to="/compliance" className="text-gray-300 hover:text-[#00FFFF]">Compliance</Link></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="mt-8 pt-8 border-t border-gray-700">
-          <p className="text-center text-gray-300">
-            © {new Date().getFullYear()} Akss AI. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
