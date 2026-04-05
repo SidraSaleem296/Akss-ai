@@ -403,7 +403,7 @@ const Home = () => {
           tone="light"
         />
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             const colors = [
@@ -412,6 +412,7 @@ const Home = () => {
               'bg-gradient-to-br from-purple to-royal',
               'bg-gradient-to-br from-amber to-[#FFB627]',
               'bg-gradient-to-br from-midnight to-royal',
+              'bg-gradient-to-br from-[#00A896] to-teal',
             ];
 
             return (

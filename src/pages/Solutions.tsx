@@ -99,7 +99,7 @@ const Solutions = () => {
           tone="light"
         />
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {industries.map((industry) => {
             const Icon = industry.icon;
 

@@ -3,6 +3,7 @@ import {
   Blocks,
   Bot,
   Building2,
+  DollarSign,
   FileSearch,
   GraduationCap,
   LayoutDashboard,
@@ -37,11 +38,14 @@ export const heroHighlights = [
 ];
 
 export const heroNodes = [
-  { label: 'GenAI Full Stack SAAS', angle: 0 },
-  { label: 'Request for Proposals', angle: 72 },
-  { label: 'Chatbots', angle: 144 },
-  { label: 'Automation', angle: 216 },
-  { label: 'Scripting', angle: 288 },
+  { label: 'Secure RAG Systems', angle: 0 },
+  { label: 'AI Chatbots', angle: 45 },
+  { label: 'Workflow Automation', angle: 90 },
+  { label: 'Custom GenAI SaaS', angle: 135 },
+  { label: 'Reduce Costs with AI', angle: 180 },
+  { label: '24/7 AI Workforce', angle: 225 },
+  { label: 'Instant Insights', angle: 270 },
+  { label: 'Customer Intelligence', angle: 315 },
 ];
 
 export const painPoints = [
@@ -158,6 +162,13 @@ export const industries: IndustryItem[] = [
     icon: Store,
   },
   {
+    title: 'Finance',
+    description:
+      'Document analysis chatbots, financial data processing, automated reporting, and secure knowledge assistants for financial documents.',
+    focus: 'Document intelligence + automation',
+    icon: DollarSign,
+  },
+  {
     title: 'Education',
     description:
       'Assistant tools, personalized learning flows, and knowledge-rich experiences for digital education.',
@@ -245,8 +256,8 @@ export const faqs = [
 export const teamMembers = [
   {
     name: 'Sidra Saleem',
-    role: 'CEO and Product Manager',
-    focus: 'Product direction, strategy, discovery',
+    role: 'CEO, Product Manager & Lead Full Stack Developer',
+    focus: 'Product direction, strategy, discovery, and full-stack development',
   },
   {
     name: 'Summiya Ali',
