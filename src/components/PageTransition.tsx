@@ -7,26 +7,24 @@ interface PageTransitionProps {
 
 const pageVariants = {
   initial: {
-    opacity: 0,
-    y: 20,
-    scale: 0.98,
+    opacity: 1,
+    y: 0,
+    scale: 1,
   },
   enter: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.4,
-      ease: [0.6, 0.05, 0.01, 0.9],
+      duration: 0,
     },
   },
   exit: {
-    opacity: 0,
-    y: -20,
-    scale: 0.98,
+    opacity: 1,
+    y: 0,
+    scale: 1,
     transition: {
-      duration: 0.3,
-      ease: [0.6, 0.05, 0.01, 0.9],
+      duration: 0,
     },
   },
 };

@@ -11,13 +11,13 @@ const Navbar = () => {
   const linkClassName = ({ isActive }: { isActive: boolean }) =>
     [
       'rounded-full px-3 py-2 text-sm font-medium transition-all duration-300',
-      isActive ? 'bg-white/10 text-white shadow-[0_0_12px_rgba(138,163,255,0.12)]' : 'text-white/[0.68] hover:text-white hover:bg-white/[0.06] hover:shadow-[0_0_12px_rgba(76,47,207,0.14)]',
+      isActive ? 'bg-white/10 text-white shadow-[0_0_12px_rgba(184,203,196,0.16)]' : 'text-white/[0.68] hover:text-white hover:bg-white/[0.06] hover:shadow-[0_0_12px_rgba(21,45,53,0.18)]',
     ].join(' ');
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-4 z-50">
       <div className="page-shell">
-        <div className="pointer-events-auto rounded-[28px] border border-white/10 bg-[rgba(6,8,22,0.72)] px-4 py-3 shadow-glow backdrop-blur-2xl sm:px-5">
+        <div className="pointer-events-auto rounded-[28px] border border-white/10 bg-[rgba(5,6,7,0.72)] px-4 py-3 shadow-glow backdrop-blur-2xl sm:px-5">
           <div className="flex items-center justify-between gap-4">
             <BrandMark compact />
 
@@ -33,7 +33,7 @@ const Navbar = () => {
                     >
                       {item.label}
                       <motion.div
-                        className="h-[2px] bg-gradient-to-r from-teal to-royal"
+                        className="h-[2px] bg-gradient-to-r from-mist to-midnight"
                         initial={{ width: 0 }}
                         animate={{ width: isActive ? '100%' : 0 }}
                         transition={{ duration: 0.3 }}
@@ -57,7 +57,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setIsOpen((value) => !value)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:shadow-[0_0_12px_rgba(138,163,255,0.14)] lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 hover:shadow-[0_0_12px_rgba(184,203,196,0.18)] lg:hidden"
               aria-label="Toggle navigation"
             >
               <motion.div

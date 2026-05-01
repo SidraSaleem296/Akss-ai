@@ -18,9 +18,9 @@ const BrandMark = ({ compact = false }: BrandMarkProps) => {
       >
         <defs>
           <linearGradient id={gradientId} x1="10" y1="10" x2="54" y2="54">
-            <stop offset="0%" stopColor="#8AA3FF" />
-            <stop offset="42%" stopColor="#4C2FCF" />
-            <stop offset="100%" stopColor="#00A896" />
+            <stop offset="0%" stopColor="#F6F8F8" />
+            <stop offset="42%" stopColor="#152D35" />
+            <stop offset="100%" stopColor="#050607" />
           </linearGradient>
         </defs>
         <rect
@@ -33,18 +33,18 @@ const BrandMark = ({ compact = false }: BrandMarkProps) => {
         />
         <path
           d="M21 46 32 19l11 27"
-          stroke="white"
+          stroke="#F6F8F8"
           strokeWidth="5.4"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M26.8 34h10.4"
-          stroke="white"
+          stroke="#F6F8F8"
           strokeWidth="5.4"
           strokeLinecap="round"
         />
-        <circle cx="32" cy="18" r="3.5" fill="#00A896" />
+        <circle cx="32" cy="18" r="3.5" fill="#B8CBC4" />
       </svg>
 
       <span className="leading-none">

@@ -40,7 +40,7 @@ const ElevatorPitch = () => {
 
             return (
               <div key={stage.title} className="soft-card soft-card-dark p-6" data-card>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#8AA3FF]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-mist">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-white">
