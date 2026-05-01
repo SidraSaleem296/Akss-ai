@@ -52,7 +52,7 @@ const CustomCursor = () => {
 
       {/* Cursor glow ring */}
       <motion.div
-        className="pointer-events-none fixed z-[9998] hidden h-8 w-8 rounded-full border border-royal/40 lg:block"
+        className="pointer-events-none fixed z-[9998] hidden h-8 w-8 rounded-full border border-midnight/40 lg:block"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
@@ -65,13 +65,13 @@ const CustomCursor = () => {
           mass: 0.8,
         }}
         style={{
-          boxShadow: '0 0 20px rgba(76, 47, 207, 0.3)',
+          boxShadow: '0 0 20px rgba(21, 45, 53, 0.3)',
         }}
       />
 
       {/* Cursor trail glow */}
       <motion.div
-        className="pointer-events-none fixed z-[9997] hidden h-12 w-12 rounded-full bg-gradient-radial from-royal/20 to-transparent blur-md lg:block"
+        className="pointer-events-none fixed z-[9997] hidden h-12 w-12 rounded-full bg-gradient-radial from-midnight/20 to-transparent blur-md lg:block"
         animate={{
           x: mousePosition.x - 24,
           y: mousePosition.y - 24,

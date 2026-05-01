@@ -78,7 +78,7 @@ const Features = () => {
               <ul className="mt-6 space-y-3 text-sm text-white/[0.62]">
                 {group.points.map((point) => (
                   <li key={point} className="flex items-start gap-3 leading-7">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-teal" />
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-mist" />
                     <span>{point}</span>
                   </li>
                 ))}
