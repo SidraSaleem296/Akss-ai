@@ -1,184 +1,111 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Brain, Target, Users, Award, Rocket, Heart, Shield } from 'lucide-react';
+import PageHero from '../components/PageHero';
+import PageSection, { SectionHeading } from '../components/PageSection';
+import { differentiators, processSteps } from '../content/siteContent';
 
 const About = () => {
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About Akss AI
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Pioneering secure and innovative AI solutions for Pakistan's digital future
-            </p>
-          </motion.div>
+    <div className="space-y-8 pb-8 sm:space-y-10 sm:pb-10">
+      <PageHero
+        eyebrow="About AKSS AI"
+        title="A women-led studio building practical AI products for modern businesses."
+        description="AKSS AI was founded to make advanced technology more useful, accessible, and well-designed for growing businesses. Our work sits at the intersection of product strategy, interface design, engineering, and automation."
+        tone="light"
+        actions={[
+          { label: 'Meet the Team', to: '/team' },
+          { label: 'Contact Us', to: '/contact', variant: 'secondary' },
+        ]}
+      >
+        <div className="soft-card soft-card-light p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+            Positioning
+          </p>
+          <p className="mt-4 text-lg font-semibold tracking-[-0.03em] text-slate-950">
+            AI Product Studio for business workflows
+          </p>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            We design and build custom AI-powered software tailored to how companies
+            already operate instead of forcing them into generic tools.
+          </p>
         </div>
-      </section>
+      </PageHero>
 
-      {/* Mission & Vision */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-lg shadow-lg"
-            >
-              <Target className="h-12 w-12 text-secondary mb-6" />
-              <h2 className="text-2xl font-bold text-primary mb-4">Our Mission</h2>
-              <p className="text-neutral">
-                To empower organizations with secure, scalable, and innovative AI solutions that drive digital transformation while protecting sensitive data and maintaining compliance.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-lg shadow-lg"
-            >
-              <Brain className="h-12 w-12 text-secondary mb-6" />
-              <h2 className="text-2xl font-bold text-primary mb-4">Our Vision</h2>
-              <p className="text-neutral">
-                To become Pakistan's leading provider of enterprise-grade GenAI solutions, setting new standards for secure AI implementation across industries.
-              </p>
-            </motion.div>
+      <PageSection tone="dark" className="scene-grid-dark">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              eyebrow="Mission"
+              title="Simplify complex AI for businesses that need usable systems, not just hype."
+            />
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/[0.64]">
+              AKSS AI focuses on turning workflow complexity into clear, usable products.
+              That can mean a secure RAG assistant, an internal automation tool, a
+              customer-facing chatbot, or a full custom SaaS product.
+            </p>
+          </div>
+          <div>
+            <SectionHeading
+              eyebrow="Vision"
+              title="Become one of Pakistan’s strongest women-founded AI solution companies."
+            />
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/[0.64]">
+              We want AKSS AI to stand for trustworthy execution, thoughtful design,
+              practical automation, and a calmer, more credible way to bring AI into real
+              businesses.
+            </p>
           </div>
         </div>
-      </section>
+      </PageSection>
 
-      {/* Core Values */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold text-primary mb-4">Our Core Values</h2>
-            <p className="text-neutral text-lg">
-              The principles that guide everything we do
-            </p>
-          </motion.div>
+      <PageSection tone="light" className="scene-grid-light">
+        <SectionHeading
+          eyebrow="How we operate"
+          title="A connected process from discovery to launch."
+          tone="light"
+          centered
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Shield className="h-8 w-8 text-secondary" />,
-                title: "Security First",
-                description: "We prioritize data security and privacy in every solution we build"
-              },
-              {
-                icon: <Award className="h-8 w-8 text-secondary" />,
-                title: "Excellence",
-                description: "We strive for excellence in every aspect of our work"
-              },
-              {
-                icon: <Users className="h-8 w-8 text-secondary" />,
-                title: "Customer Focus",
-                description: "We put our customers' needs at the heart of everything we do"
-              },
-              {
-                icon: <Rocket className="h-8 w-8 text-secondary" />,
-                title: "Innovation",
-                description: "We continuously push the boundaries of what's possible with AI"
-              },
-              {
-                icon: <Heart className="h-8 w-8 text-secondary" />,
-                title: "Integrity",
-                description: "We maintain the highest standards of ethical conduct"
-              },
-              {
-                icon: <Brain className="h-8 w-8 text-secondary" />,
-                title: "Expertise",
-                description: "We leverage deep technical knowledge to solve complex challenges"
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-lg"
-              >
-                <div className="mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold text-primary mb-2">{value.title}</h3>
-                <p className="text-neutral">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="mt-10 grid gap-4 lg:grid-cols-4">
+          {processSteps.map((step, index) => (
+            <div key={step.title} className="soft-card soft-card-light p-5" data-card>
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                0{index + 1}
+              </span>
+              <h3 className="mt-4 text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{step.description}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </PageSection>
 
-      {/* Our Approach */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold text-primary mb-4">Our Approach</h2>
-            <p className="text-neutral text-lg max-w-3xl mx-auto">
-              We combine cutting-edge AI technology with industry expertise to deliver solutions that drive real business value
-            </p>
-          </motion.div>
+      <PageSection tone="light">
+        <SectionHeading
+          eyebrow="Why the model works"
+          title="The difference is not just the tools. It is the way the product is shaped."
+          tone="light"
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-primary mb-4">Problem-First Mindset</h3>
-                <p className="text-neutral">
-                  We start by deeply understanding your specific challenges and requirements before proposing solutions.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-primary mb-4">Security by Design</h3>
-                <p className="text-neutral">
-                  Security isn't an afterthought - it's built into every solution from day one.
-                </p>
-              </div>
-            </motion.div>
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+          {differentiators.map((item) => {
+            const Icon = item.icon;
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-primary mb-4">Continuous Innovation</h3>
-                <p className="text-neutral">
-                  We stay at the forefront of AI technology to provide you with the most advanced solutions.
-                </p>
+            return (
+              <div key={item.title} className="soft-card soft-card-light flex gap-4 p-6" data-card>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                </div>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-primary mb-4">Scalable Solutions</h3>
-                <p className="text-neutral">
-                  Our solutions grow with your business, providing long-term value and adaptability.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </PageSection>
     </div>
   );
 };

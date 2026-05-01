@@ -1,155 +1,147 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Zap, Brain, Cloud, Lock, Users } from 'lucide-react';
+import { Check, ShieldCheck, Sparkles, Workflow } from 'lucide-react';
+import PageHero from '../components/PageHero';
+import PageSection, { SectionHeading } from '../components/PageSection';
+import { differentiators, services } from '../content/siteContent';
+
+const featureGroups = [
+  {
+    title: 'Workflow-first architecture',
+    points: [
+      'Custom product flows instead of generic software templates',
+      'AI behavior aligned with business logic and user journeys',
+      'Practical implementation designed around real operational pressure',
+    ],
+  },
+  {
+    title: 'Secure-by-design thinking',
+    points: [
+      'Guarded retrieval workflows for private knowledge use cases',
+      'Controlled access patterns where internal data matters',
+      'Human review layers when trust and accuracy need extra care',
+    ],
+  },
+  {
+    title: 'Product design + engineering in one team',
+    points: [
+      'UI/UX, AI integration, and full-stack delivery under one roof',
+      'Fewer handoffs between strategy, interface, and implementation',
+      'Cleaner launch readiness with stronger consistency across the product',
+    ],
+  },
+];
 
 const Features = () => {
-  const features = [
-    {
-      icon: <Brain className="h-12 w-12 text-secondary" />,
-      title: "Industry-Specific AI Models",
-      description: "Tailored solutions for finance, education, legal, and e-commerce sectors with specialized capabilities."
-    },
-    {
-      icon: <Shield className="h-12 w-12 text-secondary" />,
-      title: "Enterprise-Grade Security",
-      description: "On-premise deployment options and robust security measures to protect sensitive data."
-    },
-    {
-      icon: <Cloud className="h-12 w-12 text-secondary" />,
-      title: "AWS Infrastructure",
-      description: "Leveraging AWS services for cost-effective, scalable, and reliable infrastructure."
-    },
-    {
-      icon: <Lock className="h-12 w-12 text-secondary" />,
-      title: "Data Privacy",
-      description: "GDPR-compliant solutions ensuring your data remains secure and private."
-    },
-    {
-      icon: <Zap className="h-12 w-12 text-secondary" />,
-      title: "Full Stack Integration",
-      description: "Seamless integration with existing systems and workflows for maximum efficiency."
-    },
-    {
-      icon: <Users className="h-12 w-12 text-secondary" />,
-      title: "Collaborative Platform",
-      description: "Enhanced team collaboration features for better productivity and innovation."
-    }
-  ];
-
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Features That Drive Innovation
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover how our comprehensive suite of features can transform your business operations with secure, scalable AI solutions.
-            </p>
-          </motion.div>
+    <div className="space-y-8 pb-8 sm:space-y-10 sm:pb-10">
+      <PageHero
+        eyebrow="Features"
+        title="Built for speed, clarity, and practical AI adoption."
+        description="AKSS AI is structured to help businesses move from ideas and friction points to well-shaped, launch-ready systems without juggling separate design, engineering, and AI vendors."
+        tone="light"
+        actions={[
+          { label: 'Explore Solutions', to: '/solutions' },
+          { label: 'Security Approach', to: '/security', variant: 'secondary' },
+        ]}
+      >
+        <div className="grid gap-3">
+          {[
+            { icon: Workflow, label: 'Workflow-first system design' },
+            { icon: ShieldCheck, label: 'Private data aware architecture' },
+            { icon: Sparkles, label: 'Human-in-the-loop delivery' },
+          ].map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={item.label} className="soft-card soft-card-light flex items-center gap-4 p-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <p className="text-sm font-medium text-slate-700">{item.label}</p>
+              </div>
+            );
+          })}
         </div>
-      </section>
+      </PageHero>
 
-      {/* Features Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-lg shadow-lg border border-gray-100 hover:border-secondary transition-colors duration-300"
-              >
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-primary mb-3">{feature.title}</h3>
-                <p className="text-neutral">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageSection tone="dark" className="scene-grid-dark">
+        <SectionHeading
+          eyebrow="Feature groups"
+          title="The product studio model gives AKSS AI a stronger operating system than a standard AI agency."
+        />
 
-      {/* Technical Specifications */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold text-primary mb-4">Technical Specifications</h2>
-            <p className="text-neutral text-lg">
-              Built with cutting-edge technology to ensure performance, security, and scalability.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-lg shadow-lg"
-            >
-              <h3 className="text-xl font-semibold text-primary mb-4">AI & Machine Learning</h3>
-              <ul className="space-y-3 text-neutral">
-                <li className="flex items-center">
-                  <Zap className="h-5 w-5 text-secondary mr-2" />
-                  Custom-trained language models
-                </li>
-                <li className="flex items-center">
-                  <Zap className="h-5 w-5 text-secondary mr-2" />
-                  Industry-specific fine-tuning
-                </li>
-                <li className="flex items-center">
-                  <Zap className="h-5 w-5 text-secondary mr-2" />
-                  Real-time model updates
-                </li>
-                <li className="flex items-center">
-                  <Zap className="h-5 w-5 text-secondary mr-2" />
-                  Advanced NLP capabilities
-                </li>
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          {featureGroups.map((group) => (
+            <div key={group.title} className="soft-card soft-card-dark p-6" data-card>
+              <h3 className="text-2xl font-semibold tracking-[-0.04em] text-white">
+                {group.title}
+              </h3>
+              <ul className="mt-6 space-y-3 text-sm text-white/[0.62]">
+                {group.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 leading-7">
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-teal" />
+                    <span>{point}</span>
+                  </li>
+                ))}
               </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-lg shadow-lg"
-            >
-              <h3 className="text-xl font-semibold text-primary mb-4">Infrastructure & Security</h3>
-              <ul className="space-y-3 text-neutral">
-                <li className="flex items-center">
-                  <Shield className="h-5 w-5 text-secondary mr-2" />
-                  AWS cloud infrastructure
-                </li>
-                <li className="flex items-center">
-                  <Shield className="h-5 w-5 text-secondary mr-2" />
-                  End-to-end encryption
-                </li>
-                <li className="flex items-center">
-                  <Shield className="h-5 w-5 text-secondary mr-2" />
-                  GDPR compliance
-                </li>
-                <li className="flex items-center">
-                  <Shield className="h-5 w-5 text-secondary mr-2" />
-                  Regular security audits
-                </li>
-              </ul>
-            </motion.div>
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </PageSection>
+
+      <PageSection tone="light" className="scene-grid-light">
+        <SectionHeading
+          eyebrow="Delivery surface"
+          title="Feature depth matched with service breadth."
+          description="The AKSS AI offer spans interface design, AI logic, and full-stack implementation, which makes the final product feel more coherent."
+          tone="light"
+        />
+
+        <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => {
+            const Icon = service.icon;
+
+            return (
+              <div key={service.title} className="soft-card soft-card-light p-5" data-card>
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{service.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </PageSection>
+
+      <PageSection tone="light">
+        <SectionHeading
+          eyebrow="Why it matters"
+          title="Better structure in the build phase usually means less friction in the product later."
+          tone="light"
+        />
+
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+          {differentiators.slice(0, 2).map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={item.title} className="soft-card soft-card-light flex gap-4 p-6" data-card>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-white">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </PageSection>
     </div>
   );
 };
