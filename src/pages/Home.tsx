@@ -56,11 +56,7 @@ const Home = () => {
             <div className="rounded-[32px] border border-white/40 bg-[linear-gradient(145deg,rgba(246,248,248,0.94),rgba(217,222,226,0.84)_48%,rgba(184,203,196,0.76))] p-4 text-slate-950 shadow-[0_30px_80px_rgba(5,6,7,0.22)] backdrop-blur-2xl sm:p-6 md:p-8 lg:p-10 xl:p-14">
               <div className="overflow-visible">
                 <div className="relative z-0">
-                  <span className="eyebrow eyebrow-light" data-hero-badge>
-                    AI product studio — open-source, end-to-end encrypted
-                  </span>
-
-                  <h1 className="mt-4 max-w-xl text-2xl font-semibold leading-[1.08] tracking-[-0.06em] text-slate-950 sm:mt-6 sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.8rem]">
+                  <h1 className="max-w-xl text-2xl font-semibold leading-[1.08] tracking-[-0.06em] text-slate-950 sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.8rem]">
                     <span className="hero-line block">{taglines.b2b}</span>
                   </h1>
 
