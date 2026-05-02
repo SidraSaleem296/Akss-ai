@@ -1,8 +1,4 @@
-import { useRef } from 'react';
-import { ArrowRight, Check } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 import FaqAccordion from '../components/FaqAccordion';
 import PageSection, { SectionHeading } from '../components/PageSection';
 import MagneticButton from '../components/MagneticButton';
@@ -16,41 +12,16 @@ import {
   taglines,
 } from '../content/siteContent';
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
 const Home = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useGSAP(
-    () => {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (prefersReducedMotion) {
-        return;
-      }
-
-      gsap.to('.hero-spotlight', {
-        xPercent: -18,
-        yPercent: 12,
-        rotation: -10,
-        duration: 7,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
-    },
-    { scope: containerRef },
-  );
-
   return (
-    <div ref={containerRef} className="space-y-8 pb-8 sm:space-y-10 sm:pb-10">
+    <div className="space-y-8 pb-8 sm:space-y-10 sm:pb-10">
       <section className="page-shell overflow-visible pt-2 sm:pt-4">
         <div
           className="scene-card scene-card-hero scene-dark scene-grid-dark px-3 py-6 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-10 lg:py-14 xl:px-12 xl:py-16"
           data-scene
         >
-          <div className="hero-spotlight absolute right-[-8%] top-[-18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(184,203,196,0.55)_0%,rgba(21,45,53,0.14)_38%,transparent_72%)] blur-3xl" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(184,203,196,0.12),transparent_26%)]" />
+          <div className="absolute right-[-8%] top-[-18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(184,203,196,0.35)_0%,rgba(21,45,53,0.10)_38%,transparent_72%)] blur-2xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(184,203,196,0.08),transparent_26%)]" />
 
           <div className="relative overflow-visible">
             <div className="rounded-[32px] border border-white/40 bg-[linear-gradient(145deg,rgba(246,248,248,0.94),rgba(217,222,226,0.84)_48%,rgba(184,203,196,0.76))] p-4 text-slate-950 shadow-[0_30px_80px_rgba(5,6,7,0.22)] backdrop-blur-2xl sm:p-6 md:p-8 lg:p-10 xl:p-14">

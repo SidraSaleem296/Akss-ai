@@ -1,5 +1,5 @@
 import { FormEvent, useState, useRef } from 'react';
-import { Mail, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle, AlertCircle, Users, Lightbulb, Zap } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import PageSection, { SectionHeading } from '../components/PageSection';
 import { contactChannels } from '../content/siteContent';
@@ -178,11 +178,34 @@ const Contact = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                 Best fit for
               </p>
-              <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-600">
-                <li>Teams that need AI built around their actual workflow</li>
-                <li>Founders who want product thinking and build execution together</li>
-                <li>Businesses with internal knowledge or repetitive process bottlenecks</li>
-              </ul>
+              <div className="mt-5 space-y-3">
+                <div className="flex items-start gap-3 rounded-2xl border border-slate-900/5 bg-gradient-to-br from-slate-50 to-white p-4 transition-all hover:border-midnight/20 hover:shadow-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-midnight to-midnight/80 text-white shadow-sm">
+                    <Users className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-700">
+                    Teams that need AI built around their actual workflow
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3 rounded-2xl border border-slate-900/5 bg-gradient-to-br from-mist/10 to-white p-4 transition-all hover:border-mist/40 hover:shadow-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-mist to-mist/80 text-slate-950 shadow-sm">
+                    <Lightbulb className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-700">
+                    Founders who want product thinking and build execution together
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3 rounded-2xl border border-slate-900/5 bg-gradient-to-br from-slate-50 to-white p-4 transition-all hover:border-midnight/20 hover:shadow-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-900 to-slate-700 text-white shadow-sm">
+                    <Zap className="h-4 w-4" />
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-700">
+                    Businesses with internal knowledge or repetitive process bottlenecks
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
