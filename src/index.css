@@ -83,7 +83,7 @@
   }
 
   .scene-card-hero {
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   .scene-card::before {
