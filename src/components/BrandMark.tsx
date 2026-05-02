@@ -1,4 +1,3 @@
-import { useId } from 'react';
 import { Link } from 'react-router-dom';
 
 type BrandMarkProps = {
@@ -6,45 +5,21 @@ type BrandMarkProps = {
 };
 
 const BrandMark = ({ compact = false }: BrandMarkProps) => {
-  const gradientId = useId();
-
   return (
     <Link to="/" className="inline-flex items-center gap-3 text-white">
       <svg
         aria-hidden="true"
-        viewBox="0 0 64 64"
-        className={compact ? 'h-10 w-10' : 'h-12 w-12'}
+        viewBox="320 360 440 360"
+        className={compact ? 'h-11 w-11' : 'h-16 w-16'}
         fill="none"
       >
         <defs>
-          <linearGradient id={gradientId} x1="10" y1="10" x2="54" y2="54">
-            <stop offset="0%" stopColor="#F6F8F8" />
-            <stop offset="42%" stopColor="#152D35" />
-            <stop offset="100%" stopColor="#050607" />
-          </linearGradient>
+          <style>{`.cls-1{fill:none;}.cls-2{fill:#f2f2f2;}.cls-3{fill:#adbca9;}`}</style>
         </defs>
-        <rect
-          x="8"
-          y="8"
-          width="48"
-          height="48"
-          rx="18"
-          fill={`url(#${gradientId})`}
-        />
-        <path
-          d="M21 46 32 19l11 27"
-          stroke="#F6F8F8"
-          strokeWidth="5.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M26.8 34h10.4"
-          stroke="#F6F8F8"
-          strokeWidth="5.4"
-          strokeLinecap="round"
-        />
-        <circle cx="32" cy="18" r="3.5" fill="#B8CBC4" />
+        <rect className="cls-1" width="1080" height="1080"/>
+        <path className="cls-2" d="M407.58,380.84l-65.53,30a5.87,5.87,0,0,0-3.41,5.32V549a5.85,5.85,0,0,0,3.38,5.3l70.45,32.88a5.86,5.86,0,0,0,6.26-.85l226.75-193a4.18,4.18,0,0,0-4.24-7.07L554,420.64l-8.48-36.89a4.18,4.18,0,0,0-6.79-2.24l-123,104.87.19-100.21A5.84,5.84,0,0,0,407.58,380.84Z"/>
+        <circle className="cls-3" cx="683.07" cy="436.17" r="32.15"/>
+        <path className="cls-2" d="M643.52,684.08l65.52-30a5.84,5.84,0,0,0,3.41-5.31V515.91a5.83,5.83,0,0,0-3.37-5.29l-70.46-32.88a5.85,5.85,0,0,0-6.26.84l-226.75,193a4.18,4.18,0,0,0,4.24,7.07l87.27-34.39,8.49,36.89a4.18,4.18,0,0,0,6.78,2.25l123-104.87-.19,100.21A5.84,5.84,0,0,0,643.52,684.08Z"/>
       </svg>
 
       <span className="leading-none">
